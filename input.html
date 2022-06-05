@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">さやぺい家計簿</h1>
+        <nav class="global-nav">
+            <ul id="link-list">
+                <li class="nav-item"><a href="./top.html"><i class="material-icons md-36">list_alt</i></a></li>
+                <li class="nav-item"><a href="./input.html"><i class="material-icons md-36">input</i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="wrapper panel clearfix" id="formContents">
+        <input type="checkbox" class="checkbox" v-model="isChecked" v-on:change="changeCategory(isChecked)" id="categoryFlag"/>
+        <label for="variableFlag">{{ category }}</label>
+        <select id="categorySelect" name="category">
+            <option v-for="content in list" :key="content" :value="content">{{ content }}</option>
+        </select>
+        <form class="input-form" id="submitForm">
+            <input type="date" v-bind:value="today" v-bind:name="dateName">
+
+            <input v-bind:type="nameType" id="name-input" name="name">
+            <input type="number" name="price">
+            <button type="button" onclick="submitData()">送信</button>
+        </form>
+    </div>
+    
+</body>
+<script src="js/input.js"></script>
+</html>

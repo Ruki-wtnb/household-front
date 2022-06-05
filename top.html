@@ -5,15 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <header>
         <h1 class="title">さやぺい家計簿</h1>
+        <nav class="global-nav">
+            <ul id="link-list">
+                <li class="nav-item"><a href="./top.html"><i class="material-icons md-36">list_alt</i></a></li>
+                <li class="nav-item"><a href="./input.html"><i class="material-icons md-36">input</i></a></li>
+            </ul>
+        </nav>
     </header>
-    <h2 class="sub-title">今月の生活費</h2>
-    <div class="main panel">
+    <h2 id="sub-title">{{thisMonth}}</h2>
+    <div class="wrapper panel clearfix">
         <div class="list" id="account-list">
             <table id="list-table">
                 <tr class="income">
@@ -43,7 +51,7 @@
                     <td class="value"></td>
                 </tr>
                 <tr class="spending">
-                    <th><i class="material-icons md-36">bolt</i></th>
+                    <th><i class="material-icons md-36">local_fire_department</i></th>
                     <td id="gas">ガス代</td>
                     <td class="value"></td>
                 </tr>
